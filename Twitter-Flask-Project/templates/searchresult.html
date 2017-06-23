@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Sentimental Analysis of Twitter Data</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	
+</head>
+<body>
+	  <div id="textC" style="text-align:center">
+	<H1>Welcome to Sentimental Analysis of Twitter Data</H1>
+   <H3> {{res['hits']['total']}} Tweets Found</H3>
+   </div>
+    <table border = 1 style="width:100%">
+			<th> Tweet </th>
+			<th> Sentiment </th>
+			<!-- Get the tweet with sentiment -->
+         {% for doc in res['hits']['hits'] %}
+         
+            <tr>
+               <th> {{ doc['_source']['text'] }} </th>
+               <td> {{ doc['_source']['sentiment'] }} </td>
+            </tr>
+            
+         {% endfor %}
+      </table>
+</body>
+</html>

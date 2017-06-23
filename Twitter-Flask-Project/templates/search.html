@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Sentimental Analysis of Twitter Data</title>
+		<script type="text/javascript">
+		window.onload = function () {
+			var chart = new CanvasJS.Chart("chartContainer", {
+				title: {
+					text: "Sentiment Chart Analysis"
+				},
+				data: [{
+					type: "column",
+					dataPoints: [
+						{ y: {{resP['hits']['total']}}, label: "Positive" },
+						{ y: {{resNe['hits']['total']}}, label: "Negative" },
+						{ y: {{resN['hits']['total']}}, label: "Neutral" },
+					]
+				}]
+			});
+			chart.render();	
+
+	
+		}
+	</script>
+	 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="stylesheet" type="text/javascript" href="{{ url_for('static', filename='canvasjs.min.js') }}">
+	<script type = "text/javascript" src = "{{ url_for('static', filename = 'canvasjs.min.js') }}" ></script>
+
+<style>
+input[type=submit] {
+    padding:5px 15px; 
+    background:#fff; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+input[type='text'] { font-size: 24px;}
+
+</style>	
+</head>
+<body style="background-color:#232323">
+    <div id="textC">
+	<H1 style="color:#fff">Welcome to Sentiment Analysis of Twitter Data</H1>
+
+	 	<p style="color:#fff; font-size:25px; float:left"> Total Count of Tweets {{ total }}</p>
+  <!-- For average sentiment calculation  -->
+  	 <p style="color:#fff; font-size:25px; float:right">Average Sentiment {{averagesenti}}</p>
+        
+<!-- Form for search of text -->
+  	 		<H3 style="color:#fff; font-size:25px">Search For the Text</H3>
+		<form action = "http://127.0.0.1:5000/searchtext" method = "post">
+         <p style="color:#fff; font-size:25px">Enter Text</p>
+         <p ><input type = "text" name = "searchtext" /></p>
+			<div id="textinp" style="color:#fff; font-size:25px">
+		<input type="checkbox" name="positive" value="positive" checked> Positive
+		<input type="checkbox" name="negative" value="negative" checked> Negative
+		<input type="checkbox" name="neutral" value="neutral" checked> Neutral
+		</div>
+		<p><input type = "submit" value = "Submit" /></p>
+	</form>
+
+
+	</div>
+	<div style="height: 400px; width: 100%;">
+ 
+		<div id="chartContainer" style="height: 400px; width: 50%; float:left" >
+	    </div>
+	  	  		<table border = 1 style="height: 400px; width:50%; float:left">
+			<th style="color:#fff;font-size:25px"> Noun Phrase </th>
+			<th style="color:#fff;font-size:25px"> Count </th>
+			<!-- Noun Phrase with count -->
+           {% for key, value in nounP %}
+         
+            <tr>
+               <td style="color:#fff; font-size:20px"> {{ key}} </td>
+               <td style="color:#fff; font-size:20px"> {{ value}} </td>
+            </tr>
+            
+         {% endfor %}
+      </table>
+	</div>
+
+
+		
+</body>
+</html>

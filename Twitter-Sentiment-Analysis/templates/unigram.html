@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Sentiment Comparison</title>
+        <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+        
+        .panel-body { background-color:#fafafa;}
+input[type=submit] {
+    padding:12px 20px; 
+    background:#fafafa; 
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+	font-size:larger;
+}
+p{
+text-align:center;}
+h3{
+font-size: x-large !important;
+}
+
+h2,h3,li{
+color:orange !important;
+}
+        </style>
+		
+<script type = "text/css" 
+         src = "{{ url_for('static', filename = 'style.css') }}" ></script>	
+<script type = "text/javascript" 
+         src = "{{ url_for('static', filename = 'script.js') }}" ></script>	
+<script type = "text/javascript" 
+         src = "{{ url_for('static', filename = 'hBarChart.js') }}" ></script>
+    </head>
+    <body>
+        <div id="jquery-script-menu">
+		<ul>
+<li><h1 style="text-align:center;">Sentiment Analysis of Twitter Data</h1>
+</li>
+</ul>
+		      
+<div class="jquery-script-center">
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+        
+        <h1 style=" margin:150px auto 30px auto; text-align:center;"></h1>
+<section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                            <h2 style="text-align:center; ">Sentiment Without Emoji</h2>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--6 end -->
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 style="text-align:center;">Sentiment With Emoji</h2>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    Unigram
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    <ul class="chart">
+  <li data-data={{uninoemonu['hits']['total']}}>
+      Neutral {{uninoemonu['hits']['total']}}
+  </li>
+  <li data-data={{uninoemone['hits']['total']}}>
+      Negative {{uninoemone['hits']['total']}}
+  </li>
+  <li data-data={{uninoemopo['hits']['total']}}>
+      Positive {{uninoemopo['hits']['total']}}
+  </li>
+</ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--6 end -->
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    Unigram
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    <ul class="chart1">
+  <li data-data={{uniemonu['hits']['total']}}>
+      Neutral {{uniemonu['hits']['total']}}
+  </li>
+  <li data-data={{uniemone['hits']['total']}}>
+      Negative {{uniemone['hits']['total']}}
+  </li>
+  <li data-data={{uniemopo['hits']['total']}}>
+      Positive {{uniemopo['hits']['total']}}
+  </li>
+</ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- chart1 -->
+		<section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                   Bigram
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    <ul class="chart">
+  <li data-data={{binoemonu['hits']['total']}}>
+      Neutral {{binoemonu['hits']['total']}}
+  </li>
+  <li data-data={{binoemone['hits']['total']}}>
+      Negative {{binoemone['hits']['total']}}
+  </li>
+  <li data-data={{binoemopo['hits']['total']}}>
+      Positive {{binoemopo['hits']['total']}}
+  </li>
+</ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--6 end -->
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    Bigram
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    <ul class="chart1">
+  <li data-data={{biemonu['hits']['total']}}>
+      Neutral {{biemonu['hits']['total']}}
+  </li>
+  <li data-data={{biemone['hits']['total']}}>
+      Negative {{biemone['hits']['total']}}
+  </li>
+  <li data-data={{biemopo['hits']['total']}}>
+      Positive {{biemopo['hits']['total']}}
+  </li>
+</ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		
+        
+
+    
+        <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    </body>
+</html>

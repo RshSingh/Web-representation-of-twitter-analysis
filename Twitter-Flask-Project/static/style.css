@@ -1,0 +1,25 @@
+body{
+	background-color:#000;
+}
+#textC{
+	text-align:center;
+}
+H1{
+    color:#fff;
+    align:center;
+}
+p{
+    color:#fff;
+    align:center;
+}
+th{
+	color:#fff
+}
+input[type=submit] {
+    padding:5px 15px; 
+    background:#fff; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}

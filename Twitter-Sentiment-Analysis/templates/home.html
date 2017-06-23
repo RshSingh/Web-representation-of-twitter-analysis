@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Sentimental Analysis of Twitter Data</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<style>
+input[type=submit] {
+    padding:5px 15px; 
+    background:#fff; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+input[type='text'] { font-size: 24px; }
+</style>
+	
+</head>
+<body style="background-color:#232323; text-align:center">
+     <div id="textC" style="margin-top:230px">
+	 <H1 style="color:#fff; font-size:25px">Welcome to Sentiment Analysis of Twitter Data</H1>
+        <form action = "http://127.0.0.1:5000/hash" method = "post">
+		<!-- Enter the text to extract tweet -->
+         <p style="color:#fff; font-size:25px">Enter Text or Hashtag for Sentimental Analysis:</p>
+         <p ><input type = "text" name = "hashtext" /></p>
+         <p ><input type = "submit" value = "Submit" /></p>
+        </form>
+	</div>
+</body>
+</html>

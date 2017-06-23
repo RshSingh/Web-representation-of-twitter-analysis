@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Sentimental Analysis of Twitter Data</title>
+		
+	 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="stylesheet" type="text/javascript" href="{{ url_for('static', filename='canvasjs.min.js') }}">
+	<script type = "text/javascript" src = "{{ url_for('static', filename = 'canvasjs.min.js') }}" ></script>
+<style>
+input[type=submit] {
+    padding:5px 15px; 
+    background:#fff; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+input[type='text'] { font-size: 24px;}
+
+
+</style>
+</head>
+<body style="background-color:#232323">
+    <div id="textC">
+	<H1 style="color:#fff">Welcome to Sentiment Analysis of Twitter Data</H1>
+<!-- For for twitter connection -->
+  	 		<H3 style="color:#fff; font-size:25px"></H3>
+		<form action = "http://127.0.0.1:5000/search" method = "post">
+         <p style="color:#fff; font-size:25px">Enter Consumer Key</p>
+         <p ><input type = "text" name = "consumerkey" value=""/></p>
+		 <p style="color:#fff; font-size:25px">Enter Consumer Secret</p>
+		  <p><input type = "text" name = "consumersecret" value=""/></p>
+		   <p style="color:#fff; font-size:25px">Enter Access Token</p>
+		  <p><input type = "text" name = "accesstoken" value=""/></p>
+		   <p style="color:#fff; font-size:25px">Enter Access Secret</p>
+		  <p><input type = "text" name = "accesssecret" value=""/></p>		  
+         <p><input type = "submit" value = "Submit" /></p>
+	</form>
+
+
+	</div>
+
+
+		
+</body>
+</html>
